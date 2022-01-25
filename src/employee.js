@@ -9,6 +9,11 @@ class Employee extends EntityBase {
     return Util.formatCurrency(this.#grossPay);
   }
 
+  get netPay() {
+    const rawNetPay = this.#grossPay - this.#grossPay * Employee.#TAXES_PERCENTUAL;
+    return Util.formatCurrency(rawNetPay)
+  }
+
   // constructor() {
   //   super();
   // }
